@@ -4,7 +4,7 @@ package com.openrdf.beans;
  * UserLogin entity. @author MyEclipse Persistence Tools
  */
 
-public class UserLogin implements java.io.Serializable {
+public class UserLogin {
 
 	// Fields
 
@@ -23,7 +23,13 @@ public class UserLogin implements java.io.Serializable {
 	public UserLogin(String userId) {
 		this.userId = userId;
 	}
-
+	
+	/** full constructor */
+	public UserLogin(String userLoginEmail, String password) {
+		this.userLoginEmail = userLoginEmail;
+		this.password = password;
+	}
+	
 	/** full constructor */
 	public UserLogin(String userId, String userLoginEmail, String password,
 			String userQq) {
