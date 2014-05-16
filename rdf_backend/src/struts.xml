@@ -25,6 +25,7 @@
 	
 	<!-- 导入其他模块 -->
 	<!-- users -->
+	<include file="struts_config/struts_root.xml"></include>
 	<include file="struts_config/struts_users.xml"></include>
 	
 	<!-- 在当前目录下导入实例 -->
