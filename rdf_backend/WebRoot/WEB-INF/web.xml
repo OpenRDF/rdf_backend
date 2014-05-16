@@ -25,12 +25,14 @@
 		<filter-name>CAS Filter</filter-name>
 		<filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>
 		<init-param>
+			<description>CAS登录URL</description>
 			<param-name>casServerLoginUrl</param-name>
-			<param-value>http://localhost:8580/cas/login</param-value>
+			<param-value>http://172.20.89.47:8580/cas/login</param-value>
 		</init-param>
 		<init-param>
+			<description>本地系统发布路径</description>
 			<param-name>serverName</param-name>
-			<param-value>http://localhost:8680</param-value>
+			<param-value>http://172.20.89.47:8680</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
@@ -45,12 +47,14 @@
 			org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter
 		</filter-class>
 		<init-param>
+			<description>CAS发布路径</description>
 			<param-name>casServerUrlPrefix</param-name>
-			<param-value>http://localhost:8580/cas</param-value>
+			<param-value>http://172.20.89.47:8580/cas</param-value>
 		</init-param>
 		<init-param>
+			<description>本地系统发布路径</description>
 			<param-name>serverName</param-name>
-			<param-value>http://localhost:8680</param-value>
+			<param-value>http://172.20.89.47:8680</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
@@ -105,7 +109,7 @@
 		<description>load spring configuration file</description>
 	    <param-name>contextConfigLocation</param-name>  
 	    <param-value>  
-	        /WEB-INF/applicationContext*.xml  
+	        /WEB-INF/classes/applicationContext*.xml
 	    </param-value>  
 	</context-param> 
     
@@ -146,12 +150,7 @@
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
 	
-	<!-- http://blog.csdn.net/antoniochan/article/details/12892385 -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>toIndex.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
