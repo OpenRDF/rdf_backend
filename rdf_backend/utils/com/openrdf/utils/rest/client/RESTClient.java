@@ -15,15 +15,13 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.sun.org.apache.xml.internal.utils.URI;
-
 import net.sf.json.JSONObject;
 
 /**
  * REST Client, to invoke Other API
  * 
  * @description 本程序用于来自谢先斌毕业论文，如有使用请联系作 者，注明出处。
- * @URL 代码地址：http://github.com/openRDF/rdf_backend
+ * @URL 代码地址：http://github.com/openRDF/rdf_fronts
  * @rdf package com.openrdf.utils.rest.client;
  * @dateTime 2014-3-23
  * @author XieXianbin
