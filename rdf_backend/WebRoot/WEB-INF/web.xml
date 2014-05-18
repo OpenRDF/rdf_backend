@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
-	version="2.4">
+<?xml version="1.0" encoding="UTF-8"?>     
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"    
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance  http://www.springmodules.org/schema/cache/springmodules-cache.xsd http://www.springmodules.org/schema/cache/springmodules-ehcache.xsd"    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee      
+    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd          
+     "> 
 	<display-name>RDF web v1.0</display-name>
 	<description>This Java Web Project Was Created By Xie Xianbin, Using for The Graduation Design of RDF OS.</description>
 	
@@ -27,12 +28,12 @@
 		<init-param>
 			<description>CAS登录URL</description>
 			<param-name>casServerLoginUrl</param-name>
-			<param-value>http://172.20.89.47:8580/cas/login</param-value>
+			<param-value>http://cas.166801.com:8580/cas/login</param-value>
 		</init-param>
 		<init-param>
 			<description>本地系统发布路径</description>
 			<param-name>serverName</param-name>
-			<param-value>http://172.20.89.47:8680</param-value>
+			<param-value>http://ac.166801.com:8680</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
@@ -49,12 +50,12 @@
 		<init-param>
 			<description>CAS发布路径</description>
 			<param-name>casServerUrlPrefix</param-name>
-			<param-value>http://172.20.89.47:8580/cas</param-value>
+			<param-value>http://cas.166801.com:8580/cas</param-value>
 		</init-param>
 		<init-param>
 			<description>本地系统发布路径</description>
 			<param-name>serverName</param-name>
-			<param-value>http://172.20.89.47:8680</param-value>
+			<param-value>http://ac.166801.com:8680</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
@@ -83,8 +84,23 @@
 		<filter-name>CAS Assertion Thread Local Filter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
 	<!-- ======================== 单点登录结束 ======================== -->
 	
+	<!-- 该过滤器将把登录CAS成功后将用户信息和URL存入session -->
+	<filter>
+		<display-name>将cas信息存入session</display-name>
+		<filter-name>CAS info to session</filter-name>
+		<init-param>
+			<param-name>enCoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<filter-class>com.openrdf.filter.CasInfo2Session</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CAS info to session</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	
 	<!-- Enhance Struts2 configuration ** struts Framework -->
     <filter>  
@@ -150,6 +166,11 @@
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
 	
+	<jsp-config>
+		<jsp-property-group>
+			<icon>/favicon.ico</icon>
+		</jsp-property-group>
+	</jsp-config>
 	<welcome-file-list>
 		<welcome-file>toIndex.jsp</welcome-file>
 	</welcome-file-list>

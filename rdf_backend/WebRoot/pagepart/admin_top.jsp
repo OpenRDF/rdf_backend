@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="head-inner">
 			<div class="head-inner-left">
 				<ul>
-					<li class="logo"><a href="<%=basePath%>admin" style="display: block; height: 50px; width: 200px; padding-top: 25px;"> <img src="images/logo_reg.png" alt="logo" />
+					<li class="logo"><a href="${RDF_FRONTS_HREF }" style="display: block; height: 50px; width: 200px; padding-top: 25px;"> <img src="images/logo_reg.png" alt="logo" />
 					</a></li>
 					<i></i>
 					<li class="info">用户中心</li>

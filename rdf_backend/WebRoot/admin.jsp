@@ -2,8 +2,10 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -28,7 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- content -->
 	<div id="content">
 		<div id="content-inner">
-			<!-- .left-nav-box start -->1${part_page_number}2
+			<!-- .left-nav-box start -->
+			-${part_page_number}-${session}-
 			<jsp:include page="pagepart/admin/left_box/left_nav_box.jsp"></jsp:include>
 			<!-- .left-nav-box END -->
 			<!-- .right-box -->
