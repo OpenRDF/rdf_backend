@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="system_manager" extends="struts-default" namespace="/system_manager">
+		<!-- global redirect -->
+		<!-- 查询知识点 -->
+		<action name="searchConcept" class="rdfAction" method="searchConcept">
+			<result name="success">/system_manager/query_knowledge_points.jsp</result>
+		</action>
+		
+		<!-- 添加知识点 -->
+		<action name="addConcept" class="rdfAction" method="addConcept">
+			<result name="success">/system_manager/add_knowledge_points.jsp</result>
+		</action>
+		
+		<!-- 更新知识点 -->
+		<action name="updateConcept" class="rdfAction" method="updateConcept">
+			<result name="success">/system_manager/update_knowledge_points.jsp</result>
+		</action>
+		
+		<!-- 删除知识点 -->
+		<action name="deleteConcept" class="rdfAction" method="deleteConcept">
+			<result name="success">/system_manager/list_knowledge_points.jsp</result>
+		</action>
+		
+		<!-- list知识点 -->
+		<action name="listConcept" class="rdfAction" method="listConcept">
+			<result name="success">/system_manager/list_knowledge_points.jsp</result>
+		</action>
+		
+		<!-- AJAX -->
+		<!-- 
+		<action name="check" class="usersAction" method="checkLoginAccount"></action>
+		 -->
+	</package>
+</struts>
