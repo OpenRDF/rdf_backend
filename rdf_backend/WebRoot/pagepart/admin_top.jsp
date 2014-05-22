@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 			<div class="head-inner-right">
-				<span>欢迎您</span> <span><strong>${userName}</strong></span> <span><a>个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span>欢迎您</span> <span><strong>${userName}</strong></span> <span><a>个人中心</a>&nbsp;&nbsp;</span>
 				<button class="login-btn" onclick="window.location.href='${RDF_CAS_HREF}/logout'" id="login_btn">退出</button>
 			</div>
 		</div>

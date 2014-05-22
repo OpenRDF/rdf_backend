@@ -1,5 +1,7 @@
 package com.openrdf.service;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.openrdf.beans.User;
@@ -13,20 +15,22 @@ public class UsersService {
 	private UsersDao usersDao;
 
 	/**
-	 *  add
-	 *  
+	 * add
+	 * 
 	 * @param userLogin
 	 */
-	public void addUser(UserLogin userLogin) {
+	public void addUser(UserLogin userLogin, User user) {
 		// 向UserLogin中添加数据
 		usersDao.addUserLogin(userLogin);
 		// 向Users中添加数据
 		String userName = userLogin.getUserLoginEmail().substring(0,
 				userLogin.getUserLoginEmail().indexOf("@"));
-		User user = new User(userLogin.getUserId(), userName, "", "", "",
-				Utils.getCurrentTimeMillis(), 114, "1900-01-01", "", "", "",
-				"", "", "", userLogin.getUserLoginEmail(), 0, "", "", "", "",
-				"", "", 0, "");
+		if(user == null){
+			user = new User(userLogin.getUserId(), userName, "", "", "",
+					Utils.getCurrentTimeMillis(), 114, "1900-01-01", "", "", "",
+					"", "", "", userLogin.getUserLoginEmail(), 0, "", "", "", "",
+					"", "", 0, "");
+		}
 		usersDao.addUser(user);
 	}
 
@@ -36,48 +40,58 @@ public class UsersService {
 
 	// select
 
-
 	/**
-	 *  认证邮箱
-	 *  
+	 * 认证邮箱
+	 * 
 	 * @param userLoginEmail
 	 * @param userId
 	 * @return
 	 */
 	public String emailAuthentication(String userLoginEmail, String userId) {
 		User user = usersDao.getUserById(userId);
-		if(user == null){
+		if (user == null) {
 			return "userNotFound";
-		}else if(user.getUserEmail().equalsIgnoreCase(userLoginEmail)){
-			if(user.getEmailAuthentication() == 0){
+		} else if (user.getUserEmail().equalsIgnoreCase(userLoginEmail)) {
+			if (user.getEmailAuthentication() == 0) {
 				user.setEmailAuthentication(1);
 				usersDao.updateUser(user);
 				return "authSuccess";
-			}else{
+			} else {
 				return "reEmailAuth";
 			}
 		}
 		return null;
 	}
-	
+
 	/**
-	 * 判断邮箱是否存在 
+	 * 判断邮箱是否存在
 	 * 
 	 * @param userLoginEmail
 	 * @return boolean
 	 */
-	public boolean isExistUserLogin(String userLoginEmail){
-		UserLogin userLogin = usersDao.getUserLoginByUserLoginEmail(userLoginEmail);
-		if(userLogin == null){
+	public boolean isExistUserLogin(String userLoginEmail) {
+		UserLogin userLogin = usersDao
+				.getUserLoginByUserLoginEmail(userLoginEmail);
+		if (userLogin == null) {
 			// 登录邮箱不存在
 			return false;
-		}else{
-			// 登录邮箱存在 
+		} else {
+			// 登录邮箱存在
 			return true;
 		}
 	}
-	
-	// ========================= getters and setters =========================== //
+
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
+	public List<User> userList() {
+		return usersDao.userList();
+	}
+
+	// ========================= getters and setters ===========================
+	// //
 	public UsersDao getUsersDao() {
 		return usersDao;
 	}

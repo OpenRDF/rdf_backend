@@ -129,3 +129,48 @@ font-size: 12px;
 // color: #333;
 text-decoration: none;
 }
+
+.input {
+background: none repeat scroll 0 0 #FFFFFF;
+border: 1px solid #EDEDED;
+border-radius: 5px 5px 5px 5px;
+color: #434A54;
+height: 35px;
+line-height: 35px;
+padding: 0 10px;
+width: 210px;
+}
+
+.rdf_input {
+width: 352px;
+height: 20px;
+padding: 9px 15px;
+border: 0;
+line-height: 20px;
+color: #333;
+background: #fff;
+position: relative;
+width: 422px;
+height: 38px;
+border: 1px solid #dfdfdf;
+font-size: 100%;
+margin: 0;
+vertical-align: baseline;
+}
+
+.button_style {
+border: 0 none;
+padding: 0;
+background-color: transparent;
+cursor: pointer;
+width: 132px;
+height: 36px;
+padding: 0px 10px;
+margin: 0px 10px;
+display: block;
+float: left;
+font-size: 100%;
+text-align: center;
+background: url(../images/s_bgs.png) 0 -40px repeat-x;
+height: 36px;
+}

@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+table {
+border-collapse: collapse;
+border: 1px solid #dfdfdf;
+border-width: 0 1px 1px 1px;
+empty-cells: show;
+}
+
+table[Attributes Style] {
+width: 100%;
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+border-spacing: 0px;
+}
+
+table.rdf_tab{
+	border:1px solid #dfdfdf;
+	color:#666;
+}
+table.rdf_tab th {
+	background-repeat::repeat-x;
+	height:30px;
+}
+table.rdf_tab td,table.rdf_tab th{
+	border:1px solid #dfdfdf;
+	padding:0 1em 0;
+}
+table.rdf_tab tr.box_tr{
+	background-color:#f7f7f7;
+	line-height:28px;
+	height:28px;
+}
+
+table.rdf_tab tr a{
+	float:left;
+}
+
+table.rdf_tab tr span{
+	margin: 0 15px;
+	font-family: sans-serif;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	float: left;
+	padding: 0px 10px;
+}

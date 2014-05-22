@@ -1,8 +1,11 @@
 package com.openrdf.action;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.openrdf.base.action.OpenRDFBaseAction;
+import com.openrdf.beans.User;
 import com.openrdf.beans.UserLogin;
 import com.openrdf.service.UsersService;
 import com.openrdf.utils.EmailTemp;
@@ -27,6 +30,10 @@ public class UserAction extends OpenRDFBaseAction {
 	private String rdf_cas_href;
 	private String rdf_fronts_href;
 	private String emailAuthentication_info;
+	// 用户列表 
+	private List<User> userList;
+	// 用户 
+	private User user;
 
 	/**
 	 * 注册用户
@@ -65,7 +72,7 @@ public class UserAction extends OpenRDFBaseAction {
 
 		logger.info("注册新用户，用户邮箱：" + userLoginEmail + "，用户密码：" + password
 				+ "，UUID：" + userId);
-		usersService.addUser(userLogin);
+		usersService.addUser(userLogin, null);
 		// 发送邮件
 		SendMailAction sendMailAction = new SendMailAction();
 		// 拼装认证邮件连接
@@ -121,6 +128,17 @@ public class UserAction extends OpenRDFBaseAction {
 	 * @return
 	 */
 	public String userList(){
+		// 判断用户是否存在 
+		userList = usersService.userList();
+		return "success";
+	}
+	
+	/**
+	 * 跳转到添加用户页面
+	 * 
+	 * @return
+	 */
+	public String addUser(){
 		return "success";
 	}
 	
@@ -129,10 +147,19 @@ public class UserAction extends OpenRDFBaseAction {
 	 * 
 	 * @return
 	 */
-	public String addUser(){
+	public String addUserAction(){
+		Base64Encrpt base64Encrpt = new Base64Encrpt();
+		String userId = Utils.geneUUID().toString();
+		user.setUserId(userId);
+		user.setAccountCreateTime(Utils.getCurrentTimeMillis());
+		userLogin = new UserLogin(userId);
+		userLogin.setPassword(base64Encrpt.getEncString(user.getUserPass()));
+		user.setUserPass(userLogin.getPassword());
+		userLogin.setUserLoginEmail(user.getUserEmail());
+		userLogin.setUserQq(user.getUserQq());
+		usersService.addUser(userLogin, user);
 		return "success";
 	}
-	
 	
 	/**
 	 * 更新用户
@@ -232,6 +259,22 @@ public class UserAction extends OpenRDFBaseAction {
 
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

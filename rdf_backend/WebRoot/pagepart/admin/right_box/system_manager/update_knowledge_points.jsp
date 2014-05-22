@@ -23,7 +23,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="box-bd">
 						<div class="box-order-list-type">
 							<ul class="box-order-detail-list">
-								<li class="box-order-detail-item">您目前还没有查询知识点。</li>
+								<li class="box-order-detail-item">更新知识点</li>
+					<li class="box-order-detail-item">
+						<form id="dreamduform" method="post" action="system_manager/addConceptAction">
+							<table>
+								<tr>
+									<td>名词（中文）：</td>
+									<td><input class="rdf_input" type="text" name="user.userName" autocomplete="off" placeholder="名词"></td>
+								</tr>
+								<tr>
+									<td>名词（英文）：</td>
+									<td><input class="rdf_input" type="text" name="user.userEmail" autocomplete="off" placeholder="名词"></td>
+								</tr>
+								<tr>
+									<td>概念/定义：</td>
+									<td><input class="rdf_input" type="text" name="user.userBriefInfroduction" autocomplete="off" placeholder="名词的概念"></td>
+								</tr>
+								<tr>
+									<td colspan="2"><input class="button_style" type="submit" value="确认更新" id="submit" name="submit" /> <input class="button_style" type="reset" value="重置" id="reset" name="reset" /></td>
+								</tr>
+							</table>
+						</form>
+
+					</li>
 							</ul>
 						</div>
 					</div>

@@ -23,6 +23,7 @@
 <link type="text/css" rel="stylesheet" href="./css/main.css" media="screen" charset="utf-8">
 <link rel="stylesheet" type="text/css" href="./css/register.css">
 <link rel="stylesheet" type="text/css" href="./css/center.css">
+<link rel="stylesheet" type="text/css" href="./css/rdf_table.css">
 <script type="text/javascript" src="./js/jquery/jquery.js"></script>
 <body class="user-style ms-windows">
 	<!-- body -->
