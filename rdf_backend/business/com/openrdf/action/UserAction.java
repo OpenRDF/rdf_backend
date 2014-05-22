@@ -105,7 +105,62 @@ public class UserAction extends OpenRDFBaseAction {
 			return "userNotFound";
 		}
 	}
+	
+	/**
+	 * 找回密码
+	 * 
+	 * @return
+	 */
+	public String findPassword(){
+		return "success";
+	}
+	
+	/**
+	 * 用户列表
+	 * 
+	 * @return
+	 */
+	public String userList(){
+		return "success";
+	}
+	
+	/**
+	 * 添加用户
+	 * 
+	 * @return
+	 */
+	public String addUser(){
+		return "success";
+	}
+	
+	
+	/**
+	 * 更新用户
+	 * 
+	 * @return
+	 */
+	public String updateUser(){
+		return "success";
+	}
 
+	/**
+	 * 获取管理员信息
+	 * 
+	 * @return
+	 */
+	public String adminInfo(){
+		return "success";
+	}
+	
+	/**
+	 * 修改管理员密码
+	 * 
+	 * @return
+	 */
+	public String changeAdminPasswd(){
+		return "success";
+	}
+	
 	// ========================= getters and setters ===========================
 	// //
 	public UserLogin getUserLogin() {
