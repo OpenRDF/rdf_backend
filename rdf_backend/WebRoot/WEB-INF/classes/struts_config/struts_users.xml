@@ -7,15 +7,49 @@
 			<result name="error" type="redirect">/error.jsp</result>
 		</global-results>
 		<!-- 注册 -->
-		<action name="register" class="registerUserAction" method="registerUserAction">
+		<action name="register" class="userAction" method="registerUserAction">
 			<result name="success">/users/info.jsp</result>
 			<result name="illegalEmail">/register.jsp</result>
 		</action>
 		<!-- 认证邮箱 -->
-		<action name="emailAuthentication" class="registerUserAction" method="emailAuthentication">
+		<action name="emailAuthentication" class="userAction" method="emailAuthentication">
 			<result name="reEmailAuth">/users/info.jsp</result>
 			<result name="success">/users/info.jsp</result>
 			<result name="userNotFound">/users/info.jsp</result>
+		</action>
+		<!-- 找回密码 -->
+		<action name="findPassword" class="userAction" method="findPassword">
+			<result name="success">/users/info.jsp</result>
+		</action>
+		
+		<!-- 用户列表 -->
+		<action name="userList" class="userAction" method="userList">
+			<result name="success">/user_manager/list_user.jsp</result>
+		</action>
+		
+		<!-- 添加用户 -->
+		<action name="addUser" class="userAction" method="addUser">
+			<result name="success">/user_manager/add_user.jsp</result>
+		</action>
+		
+		<!-- 更新用户 -->
+		<action name="updateUser" class="userAction" method="updateUser">
+			<result name="success">/user_manager/update_user.jsp</result>
+		</action>
+		
+		<!-- 删除用户 -->
+		<action name="deleteUser" class="userAction" method="deleteUser">
+			<result name="success">/user_manager/list_user.jsp</result>
+		</action>
+		
+		<!-- 管理员信息 -->
+		<action name="adminInfo" class="userAction" method="adminInfo">
+			<result name="success">/person_center/user_infor.jsp</result>
+		</action>
+		
+		<!-- 修改管理员密码 -->
+		<action name="changeAdminPasswd" class="userAction" method="changeAdminPasswd">
+			<result name="success">/person_center/change_passwd.jsp</result>
 		</action>
 	</package>
 </struts>
