@@ -24,10 +24,10 @@
 	<constant name="struts.ui.theme" value="simple"></constant>
 	
 	<!-- 导入其他模块 -->
-	<!-- users -->
 	<include file="struts_config/struts_root.xml"></include>
 	<include file="struts_config/struts_users.xml"></include>
 	<include file="struts_config/sturts_rdf.xml"></include>
+	<include file="struts_config/struts_search.xml"></include>
 	
 	<!-- 在当前目录下导入实例 -->
 	<!-- 

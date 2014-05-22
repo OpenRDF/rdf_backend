@@ -10,7 +10,7 @@
 		<property name="usersDao" ref="usersDao"></property>
 	</bean>
 	<!-- users action -->
-	<bean id="registerUserAction" class="com.openrdf.action.UserAction" singleton="false">
+	<bean id="userAction" class="com.openrdf.action.UserAction" singleton="false">
 		<property name="usersService" ref="usersService" />
 	</bean>
 	
