@@ -1,28 +1,46 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
-			<div class="right-box">
-				<div class="right-box-inner">
-					<div class="box-hd">
-						<h3 class="title">系统管理</h3>
-						<div class="more">
-							<div class="box-order-list-type">
-								<a class="current float-left" href="#">搜索统计</a> 
-									<span class="sep float-left">|</span> 
-								<a class="float-left" href="#">搜索记录</a> 
-									<span class="sep float-left">|</span> 
-								<a class="float-left" href="#">收藏查询</a> 
-							</div>
-						</div>
-					</div>
-					<div class="box-bd">
-						<div class="box-order-list-type">
-							<ul class="box-order-detail-list">
-								<li class="box-order-detail-item">您目前还没有查询知识点。</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="<%=basePath%>">
+
+<title>管理中心 -- 知识库系统</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="./css/main.css" media="screen" charset="utf-8">
+<link rel="stylesheet" type="text/css" href="./css/register.css">
+<link rel="stylesheet" type="text/css" href="./css/center.css">
+<script type="text/javascript" src="./js/jquery/jquery.js"></script>
+<body class="user-style ms-windows">
+	<!-- body -->
+	<jsp:include page="../pagepart/admin_top.jsp"></jsp:include>
+	<!-- content -->
+	<div id="content">
+		<div id="content-inner">
+			<!-- .left-nav-box start -->
+			<s:set value="20" var="part_page_number" scope="session" />
+			<jsp:include page="../pagepart/admin/left_box/left_nav_box.jsp"></jsp:include>
+			<!-- .left-nav-box END -->
+			<!-- .right-box -->
+			<%-- 搜索管理 --%>
+			<jsp:include page="../pagepart/admin/right_box/search_manager/search_statistics.jsp"></jsp:include>
+			<!-- .right-box END -->
+		</div>
+	</div>
+	<jsp:include page="../pagepart/bottom.jsp"></jsp:include>
+</body>
+</html>
+
