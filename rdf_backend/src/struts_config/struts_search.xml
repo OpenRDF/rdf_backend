@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="search_manager" extends="struts-default" namespace="/search_manager">
+		<!-- 搜索统计 -->
+		<action name="searchStatistics" class="searchAction" method="searchStatistics">
+			<result name="success">/search_manager/search_statistics.jsp</result>
+		</action>
+		<!-- 搜索记录 -->
+		<action name="searchHistory" class="searchAction" method="searchHistory">
+			<result name="success">/search_manager/search_history.jsp</result>
+		</action>
+		<!-- 收藏查询 -->
+		<action name="listStore" class="searchAction" method="listStore">
+			<result name="success">/search_manager/list_store.jsp</result>
+		</action>
+		<!-- AJAX -->
+		<!-- 
+		<action name="check" class="usersAction" method="checkLoginAccount"></action>
+		 -->
+	</package>
+</struts>
