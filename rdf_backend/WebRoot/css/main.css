@@ -216,6 +216,14 @@ width: 400px;
 height: 105px;
 }
 
+.container-logo-backend{
+margin-left: 200px;
+margin-right: 200px;
+background-image: url(../images/logo.png);
+width: 400px;
+height: 105px;
+}
+
 .search-div{
 width: 590px;
 height:32px;
