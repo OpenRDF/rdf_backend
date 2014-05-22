@@ -33,13 +33,13 @@
 		<div class="box-bd">
 			<ul class="left-nav-list">
 				<li <s:if test="#session.part_page_number == 20">class="current"</s:if>>
-					<a href="#">搜索统计</a>
+					<a href="search_manager/searchStatistics">搜索统计</a>
 				</li>
 				<li <s:if test="#session.part_page_number == 21">class="current"</s:if>>
-					<a href="#">搜索记录</a>
+					<a href="search_manager/searchHistory">搜索记录</a>
 				</li>
 				<li <s:if test="#session.part_page_number == 22">class="current"</s:if>>
-					<a href="#">收藏查询</a>
+					<a href="search_manager/listStore">收藏查询</a>
 				</li>
 			</ul>
 		</div>
@@ -52,13 +52,13 @@
 		<div class="box-bd">
 			<ul class="left-nav-list">
 				<li <s:if test="#session.part_page_number == 30">class="current"</s:if>>
-					<a href="#">用户列表</a>
+					<a href="users/userList">用户列表</a>
 				</li>
 				<li <s:if test="#session.part_page_number == 31">class="current"</s:if>>
-					<a href="#">添加用户</a>
+					<a href="users/addUser">添加用户</a>
 				</li>
 				<li <s:if test="#session.part_page_number == 32">class="current"</s:if>>
-					<a href="#">查询用户</a>
+					<a href="users/updateUser">更新用户</a>
 				</li>
 			</ul>
 		</div>
@@ -71,13 +71,13 @@
 		<div class="box-bd">
 			<ul class="left-nav-list">
 				<li <s:if test="#session.part_page_number == 40">class="current"</s:if>>
-					<a href="#">个人信息</a>
+					<a href="users/adminInfo">个人信息</a>
 				</li>
 				<li <s:if test="#session.part_page_number == 41">class="current"</s:if>>
-					<a href="#">修改密码</a>
+					<a href="users/changeAdminPasswd">修改密码</a>
 				</li>
 				<li <s:if test="#session.part_page_number == 42">class="current"</s:if>>
-					<a href="#" target="_blank">退出系统</a>
+					<a href="${RDF_CAS_HREF}/logout">退出系统</a>
 				</li>
 			</ul>
 		</div>
