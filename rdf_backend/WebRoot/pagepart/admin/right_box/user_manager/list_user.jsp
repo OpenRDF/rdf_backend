@@ -7,11 +7,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="right-box">
 				<div class="right-box-inner">
 					<div class="box-hd">
-						<h3 class="title">系统管理</h3>
+						<h3 class="title">用户管理</h3>
 						<div class="more">
 							<div class="box-order-list-type">
-								<a class="current float-left" href="#">查询知识点</a> <span class="sep float-left">|</span> <a class="float-left" href="#">添加知识点</a> <span class="sep float-left">|</span> <a class="float-left"
-									href="#">更新知识点</a> <span class="sep float-left">|</span> <a class="float-left" href="#">删除知识点</a>
+								<a class="current float-left" href="users/userList">用户列表</a> 
+									<span class="sep float-left">|</span> 
+								<a class="float-left" href="users/addUser">添加用户</a> 
+									<span class="sep float-left">|</span> 
+								<a class="float-left" href="users/updateUser">更新用户</a> 
 							</div>
 						</div>
 					</div>

@@ -7,11 +7,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="right-box">
 				<div class="right-box-inner">
 					<div class="box-hd">
-						<h3 class="title">系统管理</h3>
+						<h3 class="title">搜索管理</h3>
 						<div class="more">
 							<div class="box-order-list-type">
-								<a class="current float-left" href="#">查询知识点</a> <span class="sep float-left">|</span> <a class="float-left" href="#">添加知识点</a> <span class="sep float-left">|</span> <a class="float-left"
-									href="#">更新知识点</a> <span class="sep float-left">|</span> <a class="float-left" href="#">删除知识点</a>
+							<div class="box-order-list-type">
+								<a class="float-left" href="search_manager/searchStatistics">搜索统计</a> 
+									<span class="sep float-left">|</span> 
+								<a class="current float-left" href="search_manager/searchHistory">搜索记录</a> 
+									<span class="sep float-left">|</span> 
+								<a class="float-left" href="search_manager/listStore">收藏查询</a> 
+							</div> 
 							</div>
 						</div>
 					</div>

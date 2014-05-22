@@ -3,17 +3,18 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+			<!-- .right-box -->
 			<div class="right-box">
 				<div class="right-box-inner">
 					<div class="box-hd">
-						<h3 class="title">搜索管理</h3>
+						<h3 class="title">用户管理</h3>
 						<div class="more">
 							<div class="box-order-list-type">
-								<a class="current float-left" href="search_manager/searchStatistics">搜索统计</a> 
+								<a class="float-left" href="users/userList">用户列表</a> 
 									<span class="sep float-left">|</span> 
-								<a class="float-left" href="search_manager/searchHistory">搜索记录</a> 
+								<a class="float-left" href="users/addUser">添加用户</a> 
 									<span class="sep float-left">|</span> 
-								<a class="float-left" href="search_manager/listStore">收藏查询</a> 
+								<a class="current float-left" href="users/updateUser">更新用户</a> 
 							</div>
 						</div>
 					</div>
@@ -26,3 +27,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div>
 			</div>
+			<!-- .right-box END -->
