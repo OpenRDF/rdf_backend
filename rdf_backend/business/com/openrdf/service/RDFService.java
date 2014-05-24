@@ -3,6 +3,7 @@ package com.openrdf.service;
 import java.util.List;
 
 import com.openrdf.beans.Concept;
+import com.openrdf.beans.ConceptStore;
 import com.openrdf.beans.SearchHistory;
 import com.openrdf.dao.RDFDao;
 import com.openrdf.rdf.JenaParser;
@@ -55,6 +56,39 @@ public class RDFService {
 		return conceptList;
 	}
 	
+	/**
+	 * 保存收藏 
+	 * 
+	 * @param keyword
+	 * @param userName
+	 * @return 
+	 */
+	public boolean storeAction(ConceptStore conceptStore) {
+		// 判断该用户是否收藏该词条 
+		if(rdfDao.getIsStore(conceptStore).size() == 0){
+			// 保存收藏 
+			rdfDao.saveStore(conceptStore);
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
+	/**
+	 * 知识点列表 
+	 * 
+	 * @return
+	 */
+	public List<Concept> listConcept() {
+		// 对RDF文件列举 
+		JenaParser jenaParser = new JenaParser();
+		List<Concept> conceptList = jenaParser.listConcept();
+		if (conceptList == null){
+			return null;
+		}
+		return conceptList;
+	}
+
 	/**      getter and setter        **/
 	public RDFDao getRdfDao() {
 		return rdfDao;
