@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.openrdf.beans.ConceptStore;
 import com.openrdf.beans.SearchHistory;
 import com.openrdf.beans.SearchStatistics;
 
@@ -28,6 +29,17 @@ public class SearchDao extends HibernateDaoSupport {
 	@SuppressWarnings("unchecked")
 	public List<SearchStatistics> getSearchStatistisc() {
 		String queryString = " From  SearchStatistics";
+		return this.getHibernateTemplate().find(queryString);
+	}
+
+	/**
+	 * 收藏查询 
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<ConceptStore> listStore() {
+		String queryString = " From ConceptStore ";
 		return this.getHibernateTemplate().find(queryString);
 	}
 
