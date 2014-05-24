@@ -28,6 +28,8 @@ public class SearchAction extends OpenRDFBaseAction {
 	 * @return
 	 */
 	public String searchHistory(){
+		
+		
 		return "success";
 	}
 	

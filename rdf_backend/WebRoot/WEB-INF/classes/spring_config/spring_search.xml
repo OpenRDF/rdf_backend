@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- rdf dao -->
+	<bean id="searchDao" class="com.openrdf.dao.SearchDao" singleton="false">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- rdf service -->
+	<bean id="searchService" class="com.openrdf.service.SearchService" singleton="false">
+		<property name="searchDao" ref="searchDao"></property>
+	</bean>
+	<!-- rdf action -->
+	<bean id="searchAction" class="com.openrdf.action.SearchAction" singleton="false">
+		<property name="searchService" ref="searchService" />
+	</bean>
+	
+</beans>
