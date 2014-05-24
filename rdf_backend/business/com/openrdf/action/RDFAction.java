@@ -1,13 +1,19 @@
 package com.openrdf.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
+import org.apache.struts2.ServletActionContext;
 
 import com.openrdf.base.action.OpenRDFBaseAction;
 import com.openrdf.beans.Concept;
+import com.openrdf.beans.ConceptStore;
 import com.openrdf.beans.UserLogin;
 import com.openrdf.service.RDFService;
 import com.openrdf.service.UsersService;
@@ -54,10 +60,10 @@ public class RDFAction extends OpenRDFBaseAction {
 		ActionContext actionContext = ActionContext.getContext();
 		Map<String, Object> session = actionContext.getSession();
 		String userName = (String) session.get("userName");
-		if(userName == null){
+		if (userName == null) {
 			userName = "未知用户";
 		}
-		
+
 		// 转码字符串
 		keyword = Utils.str(keyword);
 		logger.info(userName + "搜索关键字：" + keyword);
@@ -142,9 +148,57 @@ public class RDFAction extends OpenRDFBaseAction {
 	 * @return
 	 */
 	public String listConcept() {
+
+		conceptList = rdfService.listConcept();
+		logger.info("当前RDF文件中共有词条：" + conceptList.size() + "个。");
+
 		return "success";
 	}
 
+	/**
+	 * 保存知识点 ajax
+	 * 
+	 * @return
+	 */
+	public String storeAction() {
+		/** 获取response对象 */
+		HttpServletResponse response = ServletActionContext.getResponse();
+		/** 获取输出out对象 */
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+			// 获取用户名
+			ActionContext actionContext = ActionContext.getContext();
+			Map<String, Object> session = actionContext.getSession();
+			String userName = (String) session.get("userName");
+			if (userName == null) {
+				out.write("请登录!");
+				return null;
+			}
+			keyword = Utils.str(keyword);
+			logger.info(keyword);
+
+			// 生成收藏实体
+			ConceptStore conceptStore = new ConceptStore();
+			conceptStore.setKeyword(keyword);
+			conceptStore.setStoreTime(Utils.getDateTime());
+			conceptStore.setUserId(userName);
+			conceptStore.setOther("");
+			conceptStore.setId(null);
+
+			boolean state = rdfService.storeAction(conceptStore);
+			logger.info("收藏是否成功：" + !state);
+			if (!state) {
+				out.print("恭喜您，收藏词条" + keyword + "成功!");
+			} else {
+				out.print("对不起，不能重复收藏。");
+			}
+		} catch (IOException e) {
+		}
+		return null;
+	}
+
+	/** getters and setters **/
 	public RDFService getRdfService() {
 		return rdfService;
 	}
