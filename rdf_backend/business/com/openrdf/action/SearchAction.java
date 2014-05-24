@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.openrdf.base.action.OpenRDFBaseAction;
+import com.openrdf.beans.ConceptStore;
 import com.openrdf.beans.SearchHistory;
 import com.openrdf.beans.SearchStatistics;
 import com.openrdf.service.SearchService;
@@ -22,6 +23,8 @@ public class SearchAction extends OpenRDFBaseAction {
 	private List<SearchHistory> searchHistoryList;
 	// 搜索统计
 	private List<SearchStatistics> searchStatisticsList;
+	// 收藏查询 
+	private List<ConceptStore> conceptStoresList;
 
 	/**
 	 * 搜索统计
@@ -66,7 +69,16 @@ public class SearchAction extends OpenRDFBaseAction {
 	 * @return
 	 */
 	public String listStore() {
-		return "success";
+		
+		conceptStoresList = searchService.listStore();
+		logger.info("收藏记录共：" + conceptStoresList.size() + "条。");
+		if (conceptStoresList.size() == 0 || conceptStoresList == null) {
+			resultMessage = "";
+			return "error";
+		} else {
+			resultMessage = "success";
+			return "success";
+		}
 	}
 
 	/** getters and setters **/
@@ -101,6 +113,14 @@ public class SearchAction extends OpenRDFBaseAction {
 	public void setSearchStatisticsList(
 			List<SearchStatistics> searchStatisticsList) {
 		this.searchStatisticsList = searchStatisticsList;
+	}
+
+	public List<ConceptStore> getConceptStoresList() {
+		return conceptStoresList;
+	}
+
+	public void setConceptStoresList(List<ConceptStore> conceptStoresList) {
+		this.conceptStoresList = conceptStoresList;
 	}
 
 }
