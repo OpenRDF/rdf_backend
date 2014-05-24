@@ -2,6 +2,7 @@ package com.openrdf.service;
 
 import java.util.List;
 
+import com.openrdf.beans.ConceptStore;
 import com.openrdf.beans.SearchHistory;
 import com.openrdf.beans.SearchStatistics;
 import com.openrdf.dao.SearchDao;
@@ -30,6 +31,11 @@ public class SearchService {
 		return searchDao.getSearchStatistisc();
 	}
 	
+	// 收藏查询 
+	public List<ConceptStore> listStore() {
+		return searchDao.listStore();
+	}
+	
 	/**                getters and setters                       **/
 	public SearchDao getSearchDao() {
 		return searchDao;
@@ -38,5 +44,6 @@ public class SearchService {
 	public void setSearchDao(SearchDao searchDao) {
 		this.searchDao = searchDao;
 	}
+
 
 }
