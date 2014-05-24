@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*, java.net.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
@@ -7,7 +7,6 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!-- .right-box -->
 <div class="right-box">
 	<div class="right-box-inner">
 		<div class="box-hd">
@@ -26,23 +25,25 @@
 						<div class="container-logo-backend"></div>
 						<div class="search-div">
 							<form action="system_manager/searchAction" method="post">
-								<input type="text" name="keyword" value="${keyword}" id="keyword" maxlength="100" style="width:474px; height:32px;" autocomplete="off"> <input type="submit" value="搜索" id="search-button"
-									class="btn">
+								<input type="text" name="keyword" value="${keyword}" id="keyword" maxlength="100" style="width:474px; height:32px;" autocomplete="off"> <input type="submit" value="搜索"
+									id="search-button" class="btn">
 							</form>
 						</div> <s:if test='%{resultMessage eq "success" }'>
 							<div style="margin: 10px 40px;">
 								<c:forEach items="${conceptList }" var="concept">
-									<p>名称：${concept.cnName }</p>
-									<p>英文：${concept.enName }</p>
-									<p>概念/定义：</p>
+									<p>
+										<span style="float: left; width: auto;">词条：${concept.cnName }</span> <span style="width: 20px; float: left; font-style: italic;">&nbsp;</span> <span
+											style="font-style: italic; width: auto; float: left; margin-right: 100px;"> <a class="store" href='javascript:sotre("${concept.enName }");' style="display: block; width: auto;">(收藏该词条)</a></span>
+									</p>
+									<p>英文名称：${concept.enName }</p>
+									<p>词条概念/定义：</p>
 									<p>${concept.source }</p>
 									<p>创建时间：${concept.bday }</p>
 									<hr>
 								</c:forEach>
 								<p style="font-size: 14px; color: red">注意：以上结果仅供参考。</p>
 							</div>
-						</s:if> 
-						<s:else>
+						</s:if> <s:else>
 							<div style="height: 150px; text-align: center; margin-top: 20px;">${resultMessage }</div>
 						</s:else>
 					</li>
@@ -51,4 +52,14 @@
 		</div>
 	</div>
 </div>
-<!-- .right-box END -->
+<script type="text/javascript">
+	function sotre(keyword){
+		$.ajax({
+		    type: 'get',
+		    url: "system_manager/storeAction?keyword=" + keyword ,
+		    data:{}, 
+		    success: function(date){alert(date);},
+		    error: function(){alert("ajax 失败!");}
+		});
+  }
+</script>
