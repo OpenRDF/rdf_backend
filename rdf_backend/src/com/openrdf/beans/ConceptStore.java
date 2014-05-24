@@ -11,7 +11,7 @@ public class ConceptStore implements java.io.Serializable {
 	private Integer id;
 	private String userId;
 	private String key;
-	private Float storeTime;
+	private String storeTime;
 	private String other;
 
 	// Constructors
@@ -21,7 +21,8 @@ public class ConceptStore implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public ConceptStore(String userId, String key, Float storeTime, String other) {
+	public ConceptStore(String userId, String key, String storeTime,
+			String other) {
 		this.userId = userId;
 		this.key = key;
 		this.storeTime = storeTime;
@@ -54,11 +55,11 @@ public class ConceptStore implements java.io.Serializable {
 		this.key = key;
 	}
 
-	public Float getStoreTime() {
+	public String getStoreTime() {
 		return this.storeTime;
 	}
 
-	public void setStoreTime(Float storeTime) {
+	public void setStoreTime(String storeTime) {
 		this.storeTime = storeTime;
 	}
 

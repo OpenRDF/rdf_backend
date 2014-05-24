@@ -20,8 +20,8 @@
                 <comment>search key</comment>
             </column>
         </property>
-        <property name="storeTime" type="java.lang.Float">
-            <column name="storeTime" precision="12" scale="0">
+        <property name="storeTime" type="java.lang.String">
+            <column name="storeTime" length="100">
                 <comment>Store Time</comment>
             </column>
         </property>

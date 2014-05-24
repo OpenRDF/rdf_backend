@@ -9,8 +9,8 @@ public class SearchHistory implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private String key;
-	private Float serachTime;
+	private String keyword;
+	private String serachTime;
 	private String whoSearch;
 	private String other;
 
@@ -21,9 +21,9 @@ public class SearchHistory implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SearchHistory(String key, Float serachTime, String whoSearch,
+	public SearchHistory(String keyword, String serachTime, String whoSearch,
 			String other) {
-		this.key = key;
+		this.keyword = keyword;
 		this.serachTime = serachTime;
 		this.whoSearch = whoSearch;
 		this.other = other;
@@ -39,19 +39,19 @@ public class SearchHistory implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public String getKey() {
-		return this.key;
+	public String getKeyword() {
+		return this.keyword;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
-	public Float getSerachTime() {
+	public String getSerachTime() {
 		return this.serachTime;
 	}
 
-	public void setSerachTime(Float serachTime) {
+	public void setSerachTime(String serachTime) {
 		this.serachTime = serachTime;
 	}
 
