@@ -106,4 +106,13 @@ public class Utils {
 		}
 		return null;
 	}
+	
+	public static String str2ISO(String str){
+		try {
+			return new String(str.getBytes("UTF-8"), "ISO-8859-1");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
