@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -26,25 +28,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</s:if>
 				<s:else>
 				 --%>
-					<table width="100%" id="rdf_tab" border="1" class="rdf_tab">
-						<thead>
-							<th width="20%">中文名称</th>
-							<th width="20%">英文名称</th>
-							<th width="20%">概念/定义</th>
-							<th width="15%">更新时间</th>
+				<table width="100%" id="rdf_tab" border="1" class="rdf_tab">
+					<thead>
+						<th width="20%">中文名称</th>
+						<th width="20%">英文名称</th>
+						<th width="20%">概念/定义</th>
+						<th width="15%">更新时间</th>
 
-							<th width="25%">操作</th>
-						</thead>
-						<s:iterator value="userList" var="user">
-							<tr class="box_tr">
-								<td>${user.userName }</td>
-								<td>${user.userEmail }</td>
-								<td></td>
-								<td>${user.accountCreateTime }</td>
-								<td><a href="#">详细信息</a> <span>|</span> <a href="#">更新</a> <span>|</span> <a href="#">删除</a></td>
-							</tr>
-						</s:iterator>
-					</table>
+						<th width="25%">操作</th>
+					</thead>
+					<c:forEach items="${conceptList }" var="concept">
+						<tr class="box_tr">
+							<td>${concept.cnName }</td>
+							<td>${concept.enName }</td>
+							<td><script type="text/javascript">var source ="${concept.source }"; if(source.length > 9){document.write(source.substr(0, 6)+"...");}else{document.write(source)} </script></td>
+							<td>${concept.bday }</td>
+							<td><a href="#">详细信息</a> <span>|</span> <a href="#">更新</a> <span>|</span> <a href="#">删除</a></td>
+						</tr>
+					</c:forEach>
+				</table>
 				<%-- </s:else> --%>
 			</div>
 		</div>
