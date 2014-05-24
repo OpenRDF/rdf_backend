@@ -12,7 +12,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<!-- 参照地址： http://www.cnblogs.com/wj-wangjun/archive/2009/10/21/1587624.html -->
 	<!-- database connect pool -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
@@ -51,7 +51,7 @@
 				<value>com/openrdf/beans/UserLogin.hbm.xml</value>
 				<value>com/openrdf/beans/ConceptStore.hbm.xml</value>
 				<value>com/openrdf/beans/SearchHistory.hbm.xml</value>
-
+				<value>com/openrdf/beans/SearchStatistics.hbm.xml</value>
 
 
 			</list>
