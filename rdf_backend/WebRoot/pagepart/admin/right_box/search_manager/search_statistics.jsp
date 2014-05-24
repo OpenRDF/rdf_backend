@@ -1,7 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <div class="right-box">
 	<div class="right-box-inner">
@@ -16,26 +20,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="box-bd">
 			<div class="box-order-list-type">
-				<%-- 
-							<ul class="box-order-detail-list">
-								<li class="box-order-detail-item">您目前还没有查询知识点。</li>
-							</ul>--%>
-				<table width="100%" id="rdf_tab" border="1" class="rdf_tab">
-					<thead>
-						<th width="20%">次序</th>
-						<th width="20%">概念/定义</th>
-						<th width="20%">搜索次数</th>
-						<th width="40%">最后搜索时间</th>
-					</thead>
-					<s:iterator value="userList" var="user">
-						<tr class="box_tr">
-							<td>${user.userName }</td>
-							<td>${user.userEmail }</td>
-							<td></td>
-							<td>${user.accountCreateTime }</td>
-						</tr>
-					</s:iterator>
-				</table>
+				<s:if test='%{resultMessage eq "success" }'>
+					<table width="100%" id="rdf_tab" border="1" class="rdf_tab">
+						<thead>
+							<th width="20%">次序</th>
+							<th width="25%">概念/定义</th>
+							<th width="20%">搜索次数</th>
+							<th width="10%">结果</th>
+							<th width="25%">最后搜索</th>
+						</thead>
+						<s:iterator value="searchStatisticsList" var="searchStatistics" status="i">
+							<tr class="box_tr">
+								<td>${i.count}</td>
+								<td>${searchStatistics.id.keyWord }</td>
+								<td>${searchStatistics.id.searchCount }</td>
+								<td><s:if test="id.successCount > 0">成功</s:if>
+								<s:else>失败</s:else></td>
+								<td>${searchStatistics.id.lastSearchTime }</td>
+							</tr>
+						</s:iterator>
+					</table>
+				</s:if>
+				<s:else>
+					<ul class="box-order-detail-list">
+						<li class="box-order-detail-item">系统目前还没有搜索统计。</li>
+					</ul>
+				</s:else>
 			</div>
 		</div>
 	</div>

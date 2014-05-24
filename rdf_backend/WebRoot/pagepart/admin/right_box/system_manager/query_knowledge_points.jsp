@@ -29,7 +29,7 @@
 								<input type="text" name="keyword" value="${keyword}" id="keyword" maxlength="100" style="width:474px; height:32px;" autocomplete="off"> <input type="submit" value="搜索" id="search-button"
 									class="btn">
 							</form>
-						</div> <s:if test='%{resultMessage eq "success" || resultMessage eq ""}'>
+						</div> <s:if test='%{resultMessage eq "success" }'>
 							<div style="margin: 10px 40px;">
 								<c:forEach items="${conceptList }" var="concept">
 									<p>名称：${concept.cnName }</p>

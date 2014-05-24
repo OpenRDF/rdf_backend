@@ -2,8 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <!-- .right-box -->
 <div class="right-box">
@@ -19,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="box-bd">
 			<div class="box-order-list-type">
-				<s:if test="%{#userList.size()==0}">
+				<s:if test="%{userList.size()==0}">
 					<ul class="box-order-detail-list">
 						<li class="box-order-detail-item">您目前还没有查询知识点。</li>
 					</ul>
@@ -38,12 +40,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr class="box_tr">
 								<td>${user.userName }</td>
 								<td>${user.userEmail }</td>
-								<td><s:if test="<s:property value='#user.emailAuthentication'/>==1">
+								<td><s:if test="emailAuthentication==1">
 										是
 									</s:if> <s:else>
 										否
 									</s:else></td>
-								<td>${user.accountCreateTime }</td>
+								<td>
+									<script type="text/javascript">
+										var date = new Date(${user.accountCreateTime}); 
+										document.write(date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds())
+									</script>
+								</td>
 								<td><a href="#">详细信息</a> <span>|</span> <a href="#">更新</a> <span>|</span> <a href="#">删除</a></td>
 							</tr>
 						</s:iterator>
