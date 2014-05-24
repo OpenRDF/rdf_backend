@@ -13,6 +13,7 @@
 		<!-- 收藏查询 -->
 		<action name="listStore" class="searchAction" method="listStore">
 			<result name="success">/search_manager/list_store.jsp</result>
+			<result name="error">/search_manager/list_store.jsp</result>
 		</action>
 		<!-- AJAX -->
 		<!-- 
