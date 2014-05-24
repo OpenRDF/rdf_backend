@@ -3,14 +3,26 @@
 <struts>
 	<package name="system_manager" extends="struts-default" namespace="/system_manager">
 		<!-- global redirect -->
-		<!-- 查询知识点 -->
+		<!-- 跳转到查询知识点页面 -->
 		<action name="searchConcept" class="rdfAction" method="searchConcept">
 			<result name="success">/system_manager/query_knowledge_points.jsp</result>
 		</action>
 		
-		<!-- 添加知识点 -->
+		<!-- 查询知识点 -->
+		<action name="searchAction" class="rdfAction" method="searchAction">
+			<result name="success">/system_manager/query_knowledge_points.jsp</result>
+			<result name="error">/system_manager/query_knowledge_points.jsp</result>
+		</action>
+		
+		<!-- 跳转到添加知识点 -->
 		<action name="addConcept" class="rdfAction" method="addConcept">
 			<result name="success">/system_manager/add_knowledge_points.jsp</result>
+		</action>
+		
+		<!-- 添加知识点 -->
+		<action name="addConceptAction" class="rdfAction" method="addConceptAction">
+			<result name="success">/system_manager/add_knowledge_points.jsp</result>
+			<result name="error">/system_manager/add_knowledge_points.jsp</result>
 		</action>
 		
 		<!-- 更新知识点 -->

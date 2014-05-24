@@ -100,6 +100,16 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.1.26-bin.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts2-spring-plugin-2.1.8.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/arq-2.8.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/icu4j-3.4.4.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/iri-0.7.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jena-2.6.2-tests.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jena-2.6.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/junit-4.5.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/lucene-core-2.3.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/wstx-asl-3.2.9.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xercesImpl-2.7.1.jar"/>
 	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.hibernate_3.3">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="WEB-INF/lib"/>

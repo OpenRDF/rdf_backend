@@ -26,6 +26,10 @@
 		<filter-name>CAS Filter</filter-name>
 		<filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>
 		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
 			<description>CAS登录URL</description>
 			<param-name>casServerLoginUrl</param-name>
 			<param-value>http://cas.166801.com:8580/cas/login</param-value>
@@ -47,6 +51,10 @@
 		<filter-class>
 			org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter
 		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
 		<init-param>
 			<description>CAS发布路径</description>
 			<param-name>casServerUrlPrefix</param-name>
@@ -116,11 +124,6 @@
     
     <!-- spring configuration -->
     <!-- Spring Framework -->  
-	<listener>  
-	    <listener-class>  
-	      org.springframework.web.context.ContextLoaderListener  
-	    </listener-class>  
-	</listener>  
 	<context-param>
 		<description>load spring configuration file</description>
 	    <param-name>contextConfigLocation</param-name>  
@@ -128,7 +131,6 @@
 	        /WEB-INF/classes/applicationContext*.xml
 	    </param-value>  
 	</context-param> 
-    
 	
 	<!-- 以下是log4j的配置 -->
 	<!--
@@ -137,11 +139,6 @@
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
 		<param-value>/WEB-INF/classes/log4j.xml</param-value>
-	</context-param>
-
-	<context-param>
-		<param-name>log4jExposeWebAppRoot</param-name>
-		<param-value>false</param-value>
 	</context-param>
 
 	<!--
@@ -165,6 +162,30 @@
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
+	
+	<listener>  
+	    <listener-class>  
+	      org.springframework.web.context.ContextLoaderListener  
+	    </listener-class>  
+	</listener>  
+	
+	<filter> 
+		<filter-name>SpringCharacterEncodingFilter</filter-name> 
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class> 
+		<init-param> 
+			<param-name>encoding</param-name> 
+			<param-value>UTF-8</param-value> 
+		</init-param> 
+		<init-param> 
+			<param-name>forceEncoding</param-name> 
+			<param-value>true</param-value> 
+		</init-param> 
+	</filter> 
+
+	<filter-mapping> 
+		<filter-name>SpringCharacterEncodingFilter</filter-name> 
+		<url-pattern>/*</url-pattern> 
+	</filter-mapping> 
 	
 	<jsp-config>
 		<jsp-property-group>

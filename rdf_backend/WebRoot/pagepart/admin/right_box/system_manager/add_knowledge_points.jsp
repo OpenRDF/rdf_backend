@@ -1,7 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <!-- .right-box -->
 <div class="right-box">
@@ -22,17 +26,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="box-order-detail-item">
 						<form id="dreamduform" method="post" action="system_manager/addConceptAction">
 							<table>
+								<s:if test='{#resultMessage!="" }'>
+									<tr>
+										<td colspan="2" style="color:#ff4a00; height: 40px;">${resultMessage }</td>
+									</tr>
+								</s:if>
 								<tr>
 									<td>名词（中文）：</td>
-									<td><input class="rdf_input" type="text" name="user.userName" autocomplete="off" placeholder="名词"></td>
+									<td><input class="rdf_input" type="text" name="concept.cnName" autocomplete="off" placeholder="名词"></td>
 								</tr>
 								<tr>
 									<td>名词（英文）：</td>
-									<td><input class="rdf_input" type="text" name="user.userEmail" autocomplete="off" placeholder="名词"></td>
+									<td><input class="rdf_input" type="text" name="concept.enName" autocomplete="off" placeholder="名词"></td>
 								</tr>
 								<tr>
 									<td>概念/定义：</td>
-									<td><input class="rdf_input" type="text" name="user.userBriefInfroduction" autocomplete="off" placeholder="名词的概念"></td>
+									<td><input class="rdf_input" type="text" name="concept.source" autocomplete="off" placeholder="名词的概念"></td>
+								</tr>
+								<tr>
+									<td colspan="2" style="margin-left: 30px; color:#ff4a00; height: 30px;"></td>
 								</tr>
 								<tr>
 									<td colspan="2"><input class="button_style" type="submit" value="确认添加" id="submit" name="submit" /> <input class="button_style" type="reset" value="重置" id="reset" name="reset" /></td>

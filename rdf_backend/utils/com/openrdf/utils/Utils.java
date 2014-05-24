@@ -1,5 +1,6 @@
 package com.openrdf.utils;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.util.Date;
@@ -89,5 +90,20 @@ public class Utils {
 		Pattern p = Pattern.compile(regEx);
 		Matcher m = p.matcher(str);
 		return m.replaceAll("").trim();
+	}
+	
+	/**
+	 * 过滤string 
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static String str(String str){
+		try {
+			return new String(str.getBytes("ISO-8859-1"), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

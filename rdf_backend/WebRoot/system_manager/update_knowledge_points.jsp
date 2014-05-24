@@ -14,6 +14,7 @@
 <base href="<%=basePath%>">
 
 <title>管理中心 -- 知识库系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">

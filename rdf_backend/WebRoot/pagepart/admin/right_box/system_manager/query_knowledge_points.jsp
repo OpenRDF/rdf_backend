@@ -1,7 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <!-- .right-box -->
 <div class="right-box">
@@ -21,9 +25,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="box-order-detail-item">
 						<div class="container-logo-backend"></div>
 						<div class="search-div">
-							<input type="text" name="keyword" id="keyword" maxlength="100" style="width:474px; height:32px;" autocomplete="off"> <input type="submit" value="搜索" id="search-button" class="btn">
-						</div>
-						<div style="height: 150px;"></div>
+							<form action="system_manager/searchAction" method="post">
+								<input type="text" name="keyword" value="" id="keyword" maxlength="100" style="width:474px; height:32px;" autocomplete="off"> <input type="submit" value="搜索" id="search-button" class="btn">
+							</form>
+						</div> 
+						<s:if test='%{resultMessage eq "success" || resultMessage eq ""}'>
+							<div style="margin: 10px 40px;">
+								<p>名称：${concept.cnName }</p>
+								<p>英文：${concept.enName }</p>
+								<p>概念/定义：</p>
+								<p>${concept.source }</p>
+								<p>创建时间：${concept.bday }</p>
+							</div>
+						</s:if> 
+						<s:else>
+							<div style="height: 150px;">${resultMessage }</div>
+						</s:else>
 					</li>
 				</ul>
 			</div>

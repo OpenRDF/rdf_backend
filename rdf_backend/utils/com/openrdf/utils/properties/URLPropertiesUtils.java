@@ -30,6 +30,8 @@ public class URLPropertiesUtils {
 	public static final String RDF_BACKEND_HREF="RDF_BACKEND_HREF";
 	// 前台
 	public static final String RDF_FRONTS_HREF="RDF_FRONTS_HREF";
+	// rdf file location 
+	public static final String RDF_FILE_LOCATION="RDF_FILE_LOCATION";
 	
 	// 获取URL地址 
 	public static String getPropertiesUrl(String URLKey){

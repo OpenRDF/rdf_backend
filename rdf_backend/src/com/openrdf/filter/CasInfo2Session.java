@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 
 import org.jasig.cas.client.authentication.AttributePrincipal;
 
+import sun.util.logging.resources.logging;
+
 import com.openrdf.utils.properties.URLPropertiesUtils;
 
 public class CasInfo2Session implements Filter {
