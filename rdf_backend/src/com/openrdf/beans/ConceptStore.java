@@ -10,7 +10,7 @@ public class ConceptStore implements java.io.Serializable {
 
 	private Integer id;
 	private String userId;
-	private String key;
+	private String keyword;
 	private String storeTime;
 	private String other;
 
@@ -21,10 +21,10 @@ public class ConceptStore implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public ConceptStore(String userId, String key, String storeTime,
+	public ConceptStore(String userId, String keyword, String storeTime,
 			String other) {
 		this.userId = userId;
-		this.key = key;
+		this.keyword = keyword;
 		this.storeTime = storeTime;
 		this.other = other;
 	}
@@ -47,12 +47,12 @@ public class ConceptStore implements java.io.Serializable {
 		this.userId = userId;
 	}
 
-	public String getKey() {
-		return this.key;
+	public String getKeyword() {
+		return this.keyword;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 	public String getStoreTime() {

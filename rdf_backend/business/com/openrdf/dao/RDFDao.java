@@ -28,8 +28,9 @@ public class RDFDao extends HibernateDaoSupport {
 	 */
 	public boolean searchKeyWord(SearchHistory searchHistory) {
 
-		// 保存 
+		// 保存历史记录 
 		this.getHibernateTemplate().save(searchHistory);
+		// 处理搜索统计 
 		return true;
 	}
 	
