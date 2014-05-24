@@ -15,9 +15,9 @@
                 <comment>User ID</comment>
             </column>
         </property>
-        <property name="key" type="java.lang.String">
-            <column name="key" length="100">
-                <comment>search key</comment>
+        <property name="keyword" type="java.lang.String">
+            <column name="keyword" length="100">
+                <comment>search keyword</comment>
             </column>
         </property>
         <property name="storeTime" type="java.lang.String">
