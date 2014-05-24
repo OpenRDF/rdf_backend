@@ -215,5 +215,68 @@ public class JenaParser {
 	}
 
 	// select all concept
+	public List<Concept> listConcept() {
+
+		// get rdf file location
+		String filePath = URLPropertiesUtils
+				.getPropertiesUrl(URLPropertiesUtils.RDF_FILE_LOCATION);
+
+		// create an empty model
+		Model model = ModelFactory.createDefaultModel();
+
+		// create inputStream
+		InputStream in = FileManager.get().open(filePath);
+		if (in == null) {
+			throw new IllegalArgumentException("File: " + filePath
+					+ " not found.");
+		}
+
+		// read the RDF/XML file
+		model.read(in, "", "RDF/XML");
+
+		try {
+			in.close();
+		} catch (IOException e) {
+		}
+
+		List<Concept> conceptList = new ArrayList<Concept>();
+		Concept concept = new Concept();
+		StmtIterator stmtIterator = model.listStatements();
+		// 声明计数器
+		int i = 0;
+		while (stmtIterator.hasNext()) {
+			Statement statement = stmtIterator.nextStatement();
+			Property predicate = statement.getPredicate();
+			if (predicate.toString().contains(
+					"http://www.w3.org/2001/vcard-rdf/3.0#BDAY")) {
+				String bday = statement.getAlt().toString().substring(1, 10);
+				concept.setBday(bday);
+			} else if (predicate.toString().contains(
+					"http://www.w3.org/2001/vcard-rdf/3.0#NAME")) {
+				String name = statement.getAlt().toString();
+				if (name.contains("@en")) {
+					String enName = name.substring(1, name.indexOf("@") - 1);
+					concept.setEnName(enName);
+				} else if (name.contains("@zh-cn")) {
+					String cnName = name.substring(1, name.indexOf("@") - 1);
+					concept.setCnName(cnName);
+				}
+			} else if (predicate.toString().contains(
+					"http://www.w3.org/2001/vcard-rdf/3.0#SOURCE")) {
+				String source = statement.getAlt().toString();
+				source = (String) source.subSequence(1,
+						source.indexOf("^^") - 1);
+				concept.setSource(source);
+			}
+			// 当获取前5个节点时，保存一次
+			if (++i % 5 == 0) {
+				conceptList.add(concept);
+				concept = new Concept();
+			}
+		}
+		model.close();
+		return conceptList;
+	}
+
 
 }
