@@ -1,7 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <div class="right-box">
 	<div class="right-box-inner">
@@ -16,26 +20,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="box-bd">
 			<div class="box-order-list-type">
-				<%-- 
-							<ul class="box-order-detail-list">
-								<li class="box-order-detail-item">您目前还没有查询知识点。</li>
-							</ul>--%>
-				<table width="100%" id="rdf_tab" border="1" class="rdf_tab">
-					<thead>
-						<th width="20%">编号</th>
-						<th width="20%">概念/定义</th>
-						<th width="20%">用户</th>
-						<th width="15%">收藏时间</th>
-					</thead>
-					<s:iterator value="userList" var="user">
-						<tr class="box_tr">
-							<td>${user.userName }</td>
-							<td>${user.userEmail }</td>
-							<td></td>
-							<td>${user.accountCreateTime }</td>
-						</tr>
-					</s:iterator>
-				</table>
+				<s:if test='%{resultMessage eq "success" }'>
+					<table width="100%" id="rdf_tab" border="1" class="rdf_tab">
+						<thead>
+							<th width="10%">编号</th>
+							<th width="35%">词条</th>
+							<th width="30%">用户</th>
+							<th width="50%">收藏时间</th>
+						</thead>
+						<s:iterator value="conceptStoresList" var="conceptStores">
+							<tr class="box_tr">
+								<td>${conceptStores.id }</td>
+								<td>${conceptStores.keyword}</td>
+								<td>${conceptStores.userId }</td>
+								<td>${conceptStores.storeTime }</td>
+							</tr>
+						</s:iterator>
+					</table>
+				</s:if>
+				<s:else>
+					<ul class="box-order-detail-list">
+						<li class="box-order-detail-item">系统目前还没有收藏记录。</li>
+					</ul>
+				</s:else>
 			</div>
 		</div>
 	</div>
