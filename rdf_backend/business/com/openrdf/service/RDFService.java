@@ -1,8 +1,12 @@
 package com.openrdf.service;
 
+import java.util.List;
+
 import com.openrdf.beans.Concept;
+import com.openrdf.beans.SearchHistory;
 import com.openrdf.dao.RDFDao;
 import com.openrdf.rdf.JenaParser;
+import com.openrdf.utils.Utils;
 
 public class RDFService {
 
@@ -23,18 +27,32 @@ public class RDFService {
 	 * 搜索关键字 
 	 * 
 	 * @param keyword
+	 * @param userName 
 	 * @return
 	 */
-	public Concept searchKeyWord(String keyword) {
+	public List<Concept> searchKeyWord(String keyword, String userName) {
 		// 对RDF文件搜索
 		JenaParser jenaParser = new JenaParser();
-		Concept concept = jenaParser.SearchByKeyword(keyword);
-		if (concept == null){
+		List<Concept> conceptList = jenaParser.SearchByKeyword(keyword);
+		if (conceptList == null){
 			return null;
 		}
 		// 保存搜索记录 
-		
-		return concept;
+		SearchHistory searchHistory = new SearchHistory();
+		searchHistory.setKeyword(keyword);
+		searchHistory.setSerachTime(Utils.getDateTime());
+		searchHistory.setWhoSearch(userName);
+		searchHistory.setId(null);
+		System.out.println(keyword);
+		if (conceptList.size() == 0){
+			// 查询失败 
+			searchHistory.setOther("0");
+		}else{
+			// 查询成功
+			searchHistory.setOther("1");
+		}
+		rdfDao.searchKeyWord(searchHistory);
+		return conceptList;
 	}
 	
 	/**      getter and setter        **/

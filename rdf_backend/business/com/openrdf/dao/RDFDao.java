@@ -3,7 +3,9 @@ package com.openrdf.dao;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.openrdf.beans.Concept;
+import com.openrdf.beans.SearchHistory;
 import com.openrdf.rdf.JenaParser;
+import com.openrdf.utils.Utils;
 
 public class RDFDao extends HibernateDaoSupport {
 
@@ -21,12 +23,14 @@ public class RDFDao extends HibernateDaoSupport {
 	 * 通过关键字搜索 
 	 * 
 	 * @param keyword
+	 * @param userName 
 	 * @return
 	 */
-	public boolean searchKeyWord(String keyword) {
-		// 记录历史 
-		
-		return false;
+	public boolean searchKeyWord(SearchHistory searchHistory) {
+
+		// 保存 
+		this.getHibernateTemplate().save(searchHistory);
+		return true;
 	}
 	
 }
