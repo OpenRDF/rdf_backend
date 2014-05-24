@@ -37,9 +37,15 @@ public class RDFDao extends HibernateDaoSupport {
 	 */
 	public boolean searchKeyWord(SearchHistory searchHistory) {
 
+<<<<<<< HEAD
 		// 保存历史记录
 		this.getHibernateTemplate().save(searchHistory);
 		// 处理搜索统计
+=======
+		// 保存历史记录 
+		this.getHibernateTemplate().save(searchHistory);
+		// 处理搜索统计 
+>>>>>>> d693df5bba1ad31ea8c23fc7f136540848b2fe97
 		return true;
 	}
 
