@@ -40,6 +40,9 @@
 			<result name="success">/system_manager/list_knowledge_points.jsp</result>
 		</action>
 		
+		<!-- 收藏知识点 -->
+		<action name="storeAction" class="rdfAction" method="storeAction">
+		</action>
 		<!-- AJAX -->
 		<!-- 
 		<action name="check" class="usersAction" method="checkLoginAccount"></action>

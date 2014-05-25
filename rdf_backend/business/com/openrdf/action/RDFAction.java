@@ -156,7 +156,7 @@ public class RDFAction extends OpenRDFBaseAction {
 	}
 
 	/**
-	 * 保存知识点 ajax
+	 * 保存收藏词条 ajax
 	 * 
 	 * @return
 	 */
@@ -176,7 +176,7 @@ public class RDFAction extends OpenRDFBaseAction {
 				return null;
 			}
 			keyword = Utils.str(keyword);
-			logger.info(keyword);
+			logger.info("收藏词条：" + keyword);
 
 			// 生成收藏实体
 			ConceptStore conceptStore = new ConceptStore();

@@ -29,7 +29,7 @@ public class RDFDao extends HibernateDaoSupport {
 	}
 
 	/**
-	 * 通过关键字搜索
+	 * 通过关键字搜索保存记录
 	 * 
 	 * @param keyword
 	 * @param userName
@@ -37,20 +37,14 @@ public class RDFDao extends HibernateDaoSupport {
 	 */
 	public boolean searchKeyWord(SearchHistory searchHistory) {
 
-<<<<<<< HEAD
-		// 保存历史记录
-		this.getHibernateTemplate().save(searchHistory);
-		// 处理搜索统计
-=======
 		// 保存历史记录 
 		this.getHibernateTemplate().save(searchHistory);
 		// 处理搜索统计 
->>>>>>> d693df5bba1ad31ea8c23fc7f136540848b2fe97
 		return true;
 	}
 
 	/**
-	 * 获取是否已经存储
+	 * 获取是否已经收藏
 	 * 
 	 * @param conceptStore
 	 * @return
