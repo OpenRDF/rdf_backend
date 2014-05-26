@@ -5,10 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.openrdf.base.action.OpenRDFBaseAction;
-<<<<<<< HEAD
 import com.openrdf.beans.ConceptStore;
-=======
->>>>>>> d693df5bba1ad31ea8c23fc7f136540848b2fe97
 import com.openrdf.beans.SearchHistory;
 import com.openrdf.beans.SearchStatistics;
 import com.openrdf.service.SearchService;
@@ -26,11 +23,8 @@ public class SearchAction extends OpenRDFBaseAction {
 	private List<SearchHistory> searchHistoryList;
 	// 搜索统计
 	private List<SearchStatistics> searchStatisticsList;
-<<<<<<< HEAD
 	// 收藏查询 
 	private List<ConceptStore> conceptStoresList;
-=======
->>>>>>> d693df5bba1ad31ea8c23fc7f136540848b2fe97
 
 	/**
 	 * 搜索统计
@@ -75,7 +69,6 @@ public class SearchAction extends OpenRDFBaseAction {
 	 * @return
 	 */
 	public String listStore() {
-<<<<<<< HEAD
 		
 		conceptStoresList = searchService.listStore();
 		logger.info("收藏记录共：" + conceptStoresList.size() + "条。");
@@ -86,9 +79,6 @@ public class SearchAction extends OpenRDFBaseAction {
 			resultMessage = "success";
 			return "success";
 		}
-=======
-		return "success";
->>>>>>> d693df5bba1ad31ea8c23fc7f136540848b2fe97
 	}
 
 	/** getters and setters **/
@@ -125,7 +115,6 @@ public class SearchAction extends OpenRDFBaseAction {
 		this.searchStatisticsList = searchStatisticsList;
 	}
 
-<<<<<<< HEAD
 	public List<ConceptStore> getConceptStoresList() {
 		return conceptStoresList;
 	}
@@ -134,6 +123,4 @@ public class SearchAction extends OpenRDFBaseAction {
 		this.conceptStoresList = conceptStoresList;
 	}
 
-=======
->>>>>>> d693df5bba1ad31ea8c23fc7f136540848b2fe97
 }
